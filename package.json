@@ -5,9 +5,13 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@mui/icons-material": "^6.4.5",
+    "@mui/material": "^6.4.5",
+    "framer-motion": "^12.4.7",
     "next": "~15.1.4",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
