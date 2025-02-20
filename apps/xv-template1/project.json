@@ -1,0 +1,9 @@
+{
+  "name": "xv-template1",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/xv-template1",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project xv-template1 --web",
+  "targets": {}
+}
