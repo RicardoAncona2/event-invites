@@ -1,11 +1,9 @@
 import { Paper, Typography } from "@mui/material"
+import { CountdownBoxProps } from "../types"
 
-interface CountdownBoxProps {
-  label: string
-  value: number
-}
 
-export function CountdownBox({ label, value }: CountdownBoxProps) {
+
+const CountdownBox=({ label, value }: CountdownBoxProps)=> {
   return (
     <Paper
       elevation={2}
@@ -26,3 +24,4 @@ export function CountdownBox({ label, value }: CountdownBoxProps) {
   )
 }
 
+export default CountdownBox

@@ -3,16 +3,16 @@ import { createTheme } from '@mui/material/styles'
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#ec4899',
-      light: '#f9a8d4',
-      dark: '#db2777',
+      main: '#FBA0E3',      // Soft pink
+      light: '#F472B6',      // Slightly deeper pink
+      dark: '#D81B60',       // Richer, contrasting pink
     },
     secondary: {
-      main: '#f472b6',
+      main: '#FF4081',       // More vibrant contrast color for the secondary palette
     },
     background: {
-      default: '#fff',
-      paper: '#ffffff99',
+      default: '#fff',       // Clean, classic white
+      paper: '#f8f8f8',      // Light gray with a little more contrast for the paper background
     },
   },
   typography: {
@@ -35,7 +35,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           backdropFilter: 'blur(10px)',
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',  // Slightly transparent white background
         },
       },
     },

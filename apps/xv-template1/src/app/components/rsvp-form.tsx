@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 
 const MotionPaper = motion(Paper);
 
-export function RsvpForm() {
+const RsvpForm=()=> {
   const [formData, setFormData] = useState({
     name: "",
     guests: "1",
@@ -91,7 +91,7 @@ export function RsvpForm() {
         <Typography
           variant="h5"
           component="h2"
-          color="primary.dark"
+          color="text.secondary"
           align="center"
           sx={{
             mb: 4,
@@ -174,7 +174,7 @@ export function RsvpForm() {
             sx={{
               mt: 2,
               backgroundColor: "primary.main",
-              color: "white",
+              color: "text.secondary",
               "&:hover": {
                 backgroundColor: "primary.dark",
               },
@@ -204,3 +204,4 @@ export function RsvpForm() {
     </motion.div>
   );
 }
+export default RsvpForm

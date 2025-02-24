@@ -1,18 +1,18 @@
-import { CalendarToday, Schedule } from "@mui/icons-material";
-import { motion } from "framer-motion";
-import { InfoCard } from "./info-card";
-import Grid from "@mui/material/Grid2";
+import { CalendarToday, Schedule } from '@mui/icons-material';
+import { motion } from 'framer-motion';
+import { InfoCard } from './';
+import Grid from '@mui/material/Grid2';
 
-export default function EventDateCards() {
+const EventDateCards = () => {
   return (
     <Grid container spacing={2} sx={{ mb: 4 }}>
       {[
         {
           icon: <CalendarToday />,
-          title: "Fecha",
-          content: "31 de Diciembre, 2025",
+          title: 'Fecha',
+          content: '31 de Diciembre, 2025',
         },
-        { icon: <Schedule />, title: "Hora", content: "6:00 PM" },
+        { icon: <Schedule />, title: 'Hora', content: '6:00 PM' },
       ].map((item, index) => (
         <Grid size={{ xs: 12, md: 6 }} key={index}>
           <motion.div
@@ -31,4 +31,5 @@ export default function EventDateCards() {
       ))}
     </Grid>
   );
-}
+};
+export default EventDateCards;

@@ -33,7 +33,7 @@ const photos = [
   },
 ];
 
-export function PhotoGallery() {
+const PhotoGallery=()=> {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -121,3 +121,4 @@ export function PhotoGallery() {
     </motion.div>
   );
 }
+export default PhotoGallery

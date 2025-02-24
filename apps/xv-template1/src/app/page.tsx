@@ -12,8 +12,9 @@ import {
   GiftRegistry,
   HeroImage,
   PhotoGallery,
+  Passes,
 } from "./components";
-export default function QuinceaneraInvitation() {
+const QuinceaneraInvitation=()=> {
   return (
     <ThemeProvider theme={theme}>
       <Header />
@@ -25,7 +26,9 @@ export default function QuinceaneraInvitation() {
       <EventDateCards />
       <LocationSection />
       <GiftRegistry />
+      <Passes people={2}/>
       <RsvpForm />
     </ThemeProvider>
   );
 }
+export default QuinceaneraInvitation

@@ -1,10 +1,11 @@
-import { Box, Typography, styled } from "@mui/material";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import useCountdown from "../hooks/useCountdown";
-import { CountdownBox } from "./countdown-box";
+import { Box, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import useCountdown from '../hooks/useCountdown';
+import { CountdownBox } from './';
+import { HeroContainer } from './styled';
 const MotionBox = motion(Box);
-const eventDate = new Date("2025-12-31T18:00:00");
+const eventDate = new Date('2025-12-31T18:00:00');
 
 const HeroImage = () => {
   const { days, hours, minutes, seconds } = useCountdown(eventDate);
@@ -16,27 +17,27 @@ const HeroImage = () => {
       transition={{ duration: 1 }}
     >
       <HeroContainer>
-        <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+        <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
           <Image
-            src="/gallery1.jpg" // Replace with the correct image path
+            src="/gallery1.jpg"
             alt="Hero Image"
             layout="fill"
             objectFit="cover"
-            priority // Ensures fast loading
-            style={{ zIndex: -1 }} // Keep the image in the background
+            priority
+            style={{ zIndex: -1 }}
           />
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            sx={{ textAlign: "center", py: 15 }}
+            sx={{ textAlign: 'center', py: 15 }}
           >
             <Typography
               variant="h1"
               color="primary"
               gutterBottom
               sx={{
-                fontFamily: "var(--font-playfair-display)",
+                fontFamily: 'var(--font-playfair-display)',
               }}
             >
               Mis XV Años
@@ -45,7 +46,7 @@ const HeroImage = () => {
               variant="h2"
               color="white"
               gutterBottom
-              sx={{ fontFamily: "var(--font-playfair-display)" }}
+              sx={{ fontFamily: 'var(--font-playfair-display)' }}
             >
               Sofia Martinez
             </Typography>
@@ -53,13 +54,13 @@ const HeroImage = () => {
               variant="h2"
               color="primary"
               gutterBottom
-              sx={{ fontFamily: "var(--font-playfair-display)", pt: 25 }}
+              sx={{ fontFamily: 'var(--font-playfair-display)', pt: 25 }}
             >
               31 de Diciembre 6:00 pm
             </Typography>
 
             <Box sx={{ mb: 4, p: 3, borderRadius: 1 }}>
-              <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
                 <CountdownBox label="Días" value={days} />
                 <CountdownBox label="Horas" value={hours} />
                 <CountdownBox label="Minutos" value={minutes} />
@@ -74,24 +75,3 @@ const HeroImage = () => {
 };
 
 export default HeroImage;
-
-const HeroContainer = styled(Box)({
-  height: "100vh",
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  position: "relative",
-  overflow: "hidden",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // shadow color
-    boxShadow: "inset 0 4px 20px rgba(0, 0, 0, 1)", // inner shadow
-    zIndex: "-1",
-  },
-});

@@ -48,7 +48,7 @@ const Header = () => {
               },
             }}
           >
-            Ubicacion!
+            Ubicacion
           </Button>
           <Button
             color="inherit"
