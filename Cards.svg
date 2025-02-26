@@ -1,0 +1,10 @@
+<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Back card -->
+  <rect x="70" y="50" width="180" height="250" rx="15" ry="15" fill="white" stroke="black" transform="rotate(10 70 50)" />
+  
+  <!-- Middle card (pink) -->
+  <rect x="50" y="70" width="180" height="250" rx="15" ry="15" fill="pink" stroke="black" transform="rotate(5 50 70)" />
+  
+  <!-- Front card -->
+  <rect x="30" y="90" width="180" height="250" rx="15" ry="15" fill="white" stroke="black" />
+</svg>
