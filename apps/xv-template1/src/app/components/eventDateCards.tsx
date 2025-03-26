@@ -1,3 +1,4 @@
+"use client"
 import { CalendarToday, Schedule } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { InfoCard } from './';

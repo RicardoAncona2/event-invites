@@ -1,21 +1,13 @@
-import { Box, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import useCountdown from '../hooks/useCountdown';
-import { CountdownBox } from './';
-import { HeroContainer } from './styled';
-const MotionBox = motion(Box);
-const eventDate = new Date('2025-12-31T18:00:00');
 
-const HeroImage = () => {
-  const { days, hours, minutes, seconds } = useCountdown(eventDate);
+import { Box, Typography } from '@mui/material';
+import Image from 'next/image';
+import { HeroContainer } from './styled';
+import { EventDateMotionBox } from './EventDateMotionBox';
+
+const Hero = () => {
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <>
       <HeroContainer>
         <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
           <Image
@@ -26,10 +18,7 @@ const HeroImage = () => {
             priority
             style={{ zIndex: -1 }}
           />
-          <MotionBox
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <Box
             sx={{ textAlign: 'center', py: 15 }}
           >
             <Typography
@@ -54,24 +43,17 @@ const HeroImage = () => {
               variant="h2"
               color="primary"
               gutterBottom
-              sx={{ fontFamily: 'var(--font-playfair-display)', pt: 25 }}
+              sx={{ fontFamily: 'var(--font-playfair-display)' }}
             >
               31 de Diciembre 6:00 pm
             </Typography>
 
-            <Box sx={{ mb: 4, p: 3, borderRadius: 1 }}>
-              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-                <CountdownBox label="Días" value={days} />
-                <CountdownBox label="Horas" value={hours} />
-                <CountdownBox label="Minutos" value={minutes} />
-                <CountdownBox label="Segundos" value={seconds} />
-              </Box>
-            </Box>
-          </MotionBox>
+            <EventDateMotionBox />
+          </Box>
         </Box>
       </HeroContainer>
-    </motion.div>
+    </>
   );
 };
 
-export default HeroImage;
+export default Hero;

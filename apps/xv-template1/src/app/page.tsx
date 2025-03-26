@@ -1,7 +1,4 @@
-"use client";
 
-import { ThemeProvider } from "@emotion/react";
-import { theme } from "./theme";
 import {
   EventDateCards,
   LandingInfo,
@@ -15,9 +12,8 @@ import {
   Passes,
 } from "./components";
 const QuinceaneraInvitation=()=> {
-  console.log("asd")
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Header />
       <HeroImage />
       <Divider />
@@ -29,7 +25,7 @@ const QuinceaneraInvitation=()=> {
       <GiftRegistry />
       <Passes people={2}/>
       <RsvpForm />
-    </ThemeProvider>
+    </>
   );
 }
 export default QuinceaneraInvitation

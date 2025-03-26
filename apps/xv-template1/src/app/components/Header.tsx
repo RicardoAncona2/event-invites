@@ -1,3 +1,4 @@
+"use client"
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import useShowHeader from "../hooks/useShowHeader";
 

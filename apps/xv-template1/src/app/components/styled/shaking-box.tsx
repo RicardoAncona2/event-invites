@@ -1,3 +1,4 @@
+"use client"
 import { Box, keyframes, styled } from '@mui/material';
 
 const shakeVertical = keyframes`

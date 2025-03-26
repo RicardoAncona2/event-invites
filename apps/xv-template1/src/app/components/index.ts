@@ -4,7 +4,7 @@ export { default as CountdownBox } from './countdown-box';
 export { default as Divider } from './divider';
 export { default as EventDateCards } from './eventDateCards';
 export { default as GiftRegistry } from './gift-registry';
-export { default as HeroImage } from './hero-image';
+export { default as HeroImage } from './Hero';
 export { default as InfoCard } from './info-card';
 export { default as LandingInfo } from './landing-info';
 export { default as LocationSection } from './location-section'; //check
