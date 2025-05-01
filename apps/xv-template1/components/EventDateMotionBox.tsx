@@ -1,11 +1,10 @@
 "use client"
 import { Box } from "@mui/material"
-import MotionBox from "../utils/motionBox"
+import MotionBox from "./utils/motionBox"
 import CountdownBox from "./countdown-box"
-import useCountdown from '../hooks/useCountdown';
-const eventDate = new Date('2025-12-31T18:00:00');
+import useCountdown from './hooks/useCountdown';
 
-export const EventDateMotionBox = () => {
+export const EventDateMotionBox = ({eventDate}:{eventDate:Date}) => {
     const { days, hours, minutes, seconds } = useCountdown(eventDate);
 
     return (<MotionBox sx={{ mb: 4, p: 3, borderRadius: 1, }} initial={{ opacity: 0, y: 20 }}

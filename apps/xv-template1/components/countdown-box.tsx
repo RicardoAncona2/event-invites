@@ -1,5 +1,5 @@
 import { Paper, Typography } from "@mui/material"
-import { CountdownBoxProps } from "../types"
+import { CountdownBoxProps } from "./types"
 
 
 

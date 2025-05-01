@@ -1,6 +1,7 @@
-import Box from '@mui/material/Box';
 import { ShakingBox } from './styled';
 import { Typography } from '@mui/material';
+import Image from 'next/image';
+
 interface props {
   people: number;
 }
@@ -14,11 +15,11 @@ const Passes = ({ people }: props) => {
         Hemos reservado
       </Typography>
       <ShakingBox>
-        <img
+        <Image
           src="/Cards.svg"
           alt="Stacked Cards"
-          width="120vw"
-          height="150vh"
+          width="120"
+          height="150"
           style={{ position: 'relative', marginLeft: '15px' }}
         />
 

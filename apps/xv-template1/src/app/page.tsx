@@ -1,4 +1,3 @@
-
 import {
   EventDateCards,
   LandingInfo,
@@ -10,22 +9,31 @@ import {
   HeroImage,
   PhotoGallery,
   Passes,
-} from "./components";
-const QuinceaneraInvitation=()=> {
+} from '../../components';
+const name = 'Sofia Martinez'
+const parents: [string, string] = ['José Martinez', 'María González']
+const godparents: string[] = ['Juan Perez', 'Juana Lopez']
+const eventDate = new Date('2025-12-31T18:19:00');
+
+const QuinceaneraInvitation = async ({ searchParams }: { searchParams: { [key: string]: string | undefined } }) => {
+  searchParams = await searchParams
+  const people = parseInt(searchParams?.people || '0', 10);
+
   return (
     <>
       <Header />
-      <HeroImage />
+      <HeroImage name={name} eventDate={eventDate} />
       <Divider />
-      <LandingInfo />
+      <LandingInfo parents={parents} godparents={godparents} />
       <Divider />
       <PhotoGallery />
-      <EventDateCards />
+      <EventDateCards eventDate={eventDate} />
       <LocationSection />
       <GiftRegistry />
-      <Passes people={2}/>
+      {people > 0 && <Passes people={people} />}
       <RsvpForm />
     </>
   );
-}
-export default QuinceaneraInvitation
+};
+
+export default QuinceaneraInvitation;

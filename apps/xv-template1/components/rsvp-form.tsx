@@ -18,9 +18,9 @@ import {
 import { Send as SendIcon } from "@mui/icons-material";
 import { motion } from "framer-motion";
 
-const MotionPaper = motion(Paper);
+const MotionPaper = motion.create(Paper);
 
-const RsvpForm=()=> {
+const RsvpForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     guests: "1",
@@ -75,6 +75,7 @@ const RsvpForm=()=> {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
+      id="confirm"
     >
       <MotionPaper
         elevation={3}

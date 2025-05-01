@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,  } from "react";
 import {
   Box,
   Dialog,
@@ -12,7 +12,7 @@ import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { motion } from "framer-motion";
+import styles from "./photo-gallery.module.css";
 
 const photos = [
   {
@@ -33,18 +33,13 @@ const photos = [
   },
 ];
 
-const PhotoGallery=()=> {
+const PhotoGallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
+    <div className={styles.fadeInUp} id="gallery">
       <Box sx={{ pb: 5 }}>
         <h3
           style={{
@@ -118,7 +113,8 @@ const PhotoGallery=()=> {
           </div>
         </Dialog>
       </Box>
-    </motion.div>
+    </div>
   );
-}
-export default PhotoGallery
+};
+
+export default PhotoGallery;

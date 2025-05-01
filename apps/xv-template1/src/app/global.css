@@ -407,3 +407,12 @@ summary svg {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.header-button {
+  color: #ffffff;
+  font-family: General Grotesque;
+}
+
+.header-button:hover {
+  text-decoration: "underline";
+}

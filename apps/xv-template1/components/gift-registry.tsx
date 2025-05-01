@@ -13,7 +13,7 @@ import {
 import { CardGiftcard, Store, LocalMall, Redeem } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 
-const MotionCard = motion(Card);
+const MotionCard = motion.create(Card);
 
 const giftRegistries = [
   {

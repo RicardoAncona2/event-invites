@@ -1,7 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import MotionBox from "../utils/motionBox";
-
-export default function LandingInfo() {
+import MotionBox from "./utils/motionBox";
+interface props {
+  parents: [string, string]
+  godparents: string[]
+}
+const LandingInfo = ({ parents, godparents }: props) => {
   return (
     <MotionBox
       initial={{ opacity: 0, y: 50 }}
@@ -24,7 +27,7 @@ export default function LandingInfo() {
 
       <Box sx={{ mb: 4 }}>
         <Typography variant="h6" color="text.primary">
-          José Martinez & María González
+          {`${parents[0]} & ${parents[1]}`}
         </Typography>
         <Typography color="text.secondary">
           tenemos el honor de invitarte a celebrar
@@ -33,7 +36,7 @@ export default function LandingInfo() {
       </Box>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h6" color="text.primary">
-          José Martinez & María González
+          {godparents.map(godparent => <li key={godparent}>{godparent}</li>)}
         </Typography>
         <Typography color="text.secondary">
           tenemos el honor de invitarte a celebrar
@@ -43,3 +46,4 @@ export default function LandingInfo() {
     </MotionBox>
   );
 }
+export default LandingInfo
