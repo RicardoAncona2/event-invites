@@ -1,12 +1,12 @@
 
 import { CalendarToday, Schedule } from "@mui/icons-material";
 import Grid from "@mui/material/Grid2";
-import { InfoCard } from ".";
-import styles from "./event-date-cards.module.css";
+import { InfoCard } from "../..";
+import styles from "./EventDateCards.module.css";
+import { Box } from "@mui/material";
 
 const EventDateCards = ({ eventDate }: { eventDate: Date }) => {
-  const dateString = `${eventDate.getDate()} de ${
-    [
+  const dateString = `${eventDate.getDate()} de ${[
       "enero",
       "febrero",
       "marzo",
@@ -20,7 +20,7 @@ const EventDateCards = ({ eventDate }: { eventDate: Date }) => {
       "noviembre",
       "diciembre",
     ][eventDate.getMonth()]
-  } del ${eventDate.getFullYear()}`;
+    } del ${eventDate.getFullYear()}`;
 
   const items = [
     {
@@ -39,13 +39,13 @@ const EventDateCards = ({ eventDate }: { eventDate: Date }) => {
     <Grid container spacing={2} sx={{ mb: 4 }}>
       {items.map((item, index) => (
         <Grid size={{ xs: 12, md: 6 }} key={index}>
-          <div className={`${styles.card} ${styles[`delay-${index + 1}`]}`}>
+          <Box className={`${styles.card} ${styles[`delay-${index + 1}`]}`}>
             <InfoCard
               icon={item.icon}
               title={item.title}
               content={item.content}
             />
-          </div>
+          </Box>
         </Grid>
       ))}
     </Grid>

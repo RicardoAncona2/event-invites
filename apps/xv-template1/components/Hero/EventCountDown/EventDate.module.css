@@ -1,0 +1,23 @@
+/* EventDate.module.css */
+.motionBox {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .countdownWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

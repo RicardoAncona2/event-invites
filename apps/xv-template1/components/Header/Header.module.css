@@ -1,0 +1,11 @@
+div .buttonHeader {
+    color: #ffffff;
+    font-family: "General Grotesque", sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+div .buttonHeader:hover {
+    text-decoration: underline;
+}

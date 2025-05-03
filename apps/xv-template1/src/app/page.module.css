@@ -1,2 +1,11 @@
-.page {
-}
+body .divider {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: auto; 
+    margin-right: auto;
+    color: #D57087;
+    border-color: #D57087;
+    height: 10px;
+    width: 50vw;
+    display: block;
+  }

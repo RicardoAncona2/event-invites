@@ -1,13 +1,12 @@
-export { default as Header } from './Header';
-export { default as CountdownBox } from './countdown-box';
+export { default as Header } from './Header/Header';
+export { default as CountdownBox } from './Hero/EventCountDown/countdown-box';
 
-export { default as Divider } from './divider';
-export { default as EventDateCards } from './eventDateCards';
-export { default as GiftRegistry } from './gift-registry';
-export { default as HeroImage } from './Hero';
-export { default as InfoCard } from './info-card';
-export { default as LandingInfo } from './landing-info';
-export { default as LocationSection } from './location-section'; //check
-export { default as PhotoGallery } from './photo-gallery';
-export { default as RsvpForm } from './rsvp-form';
-export { default as Passes } from './Passes';
+export { default as EventDateCards } from './Hero/EventCountDown/EventDateCards';
+export { default as GiftRegistry } from './GiftRegistry';
+export { default as HeroImage } from './Hero/Hero';
+export { default as InfoCard } from './InfoCard';
+export { default as LandingInfo } from './FamilyInfo/FamiliInfo';
+export { default as LocationSection } from './LocationSection';
+export { default as PhotoGallery } from './Gallery/GallerySection';
+export { default as RsvpForm } from './RsvpForm';
+export { default as Passes } from './Passes/Passes';

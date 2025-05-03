@@ -1,43 +1,33 @@
 import { AppBar, Toolbar, Box, Button } from '@mui/material';
 import Link from 'next/link';
-const buttonStyles = {
-  color: '#ffffff',
-  fontFamily: 'General Grotesque',
-  '&:hover': {
-    textDecoration: 'underline',
-  }
-}
+import styles from './Header.module.css';
 const Header = () => {
   return (
     <AppBar
       position='fixed'
       sx={{
         backgroundColor: 'primary.light',
-        width: '100%',
       }}
     >
-      <Toolbar sx={{ width: '100%' }}>
+      <Toolbar >
         <Link href={'#home'} passHref>
           <Button
-            sx={buttonStyles}
+            className={styles.buttonHeader}
           >
             Sofia Martinez
           </Button>
         </Link>
-
         <Box sx={{ ml: 'auto' }}>
           <Link href={'#location'} passHref>
             <Button
-              component='div'
-              sx={buttonStyles}
+              className={styles.buttonHeader}
             >
               Ubicacion
             </Button>
           </Link>
           <Link href={'#confirm'} passHref>
             <Button
-              component='div'
-              sx={buttonStyles}
+              className={styles.buttonHeader}
             >
               Asistencia
             </Button>

@@ -1,7 +1,6 @@
 import {
   EventDateCards,
   LandingInfo,
-  Divider,
   Header,
   LocationSection,
   RsvpForm,
@@ -10,6 +9,8 @@ import {
   PhotoGallery,
   Passes,
 } from '../../components';
+import { Divider } from '@mui/material';
+import styles from './page.module.css'
 const name = 'Sofia Martinez'
 const parents: [string, string] = ['José Martinez', 'María González']
 const godparents: string[] = ['Juan Perez', 'Juana Lopez']
@@ -23,9 +24,9 @@ const QuinceaneraInvitation = async ({ searchParams }: { searchParams: { [key: s
     <>
       <Header />
       <HeroImage name={name} eventDate={eventDate} />
-      <Divider />
+      <Divider className={styles.divider} />
       <LandingInfo parents={parents} godparents={godparents} />
-      <Divider />
+      <Divider className={styles.divider} />
       <PhotoGallery />
       <EventDateCards eventDate={eventDate} />
       <LocationSection />
