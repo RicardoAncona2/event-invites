@@ -7,48 +7,49 @@ import { UpdateHeader } from "../utils/HeaderUpdate";
 const Header = async () => {
   const editMode = process.env.EDIT_MODE === "on";
   const [data] = await getHeader(1);
-  const {
-    headerText1,
-    headerText2,
-    headerText3,
-    headerColor,
-  } = data;
-  const styles = ""
-  const allFieldsExist = headerText1 && headerText2 && headerText3
+  const { headerText1, headerText2, headerText3, headerColor } = data;
 
+  const allFieldsExist = headerText1 && headerText2 && headerText3;
   if (!allFieldsExist) return null;
-  return (
-    <AppBar position="fixed" sx={{ backgroundColor: headerColor }}>
-      <Toolbar>
-        {editMode && <>{"Color"} <EditButton
-          label={""}
-          props={{ id: 1 }}
+
+  const renderButton = (
+    text: string,
+    href: string,
+    fieldKey: keyof typeof data
+  ) => (
+    <>
+      <Link href={href} passHref>
+        <Button>{text}</Button>
+      </Link>
+      {editMode && (
+        <EditButton
+          label={text}
+          props={{ id: 1, [fieldKey]: text }}
           updateFunction={UpdateHeader}
         />
-        </>}
-        <Link href="#home" passHref>
-          <Button className={styles}>{headerText1}</Button>
-        </Link>
-        {editMode && <EditButton
-          label={headerText1}
-          props={{ id: 1, headerText1 }}
-          updateFunction={UpdateHeader}
-        />}
+      )}
+    </>
+  );
+
+  return (
+    <AppBar position="fixed" sx={{ backgroundColor: headerColor || "primary" }}>
+      <Toolbar>
+        {editMode && (
+          <>
+            Color
+            <EditButton
+              label="a"
+              props={{ id: 1 }}
+              updateFunction={UpdateHeader}
+              enableColorPicker
+              enableTextField={false}
+            />
+          </>
+        )}
+        {renderButton(headerText1, "#home", "headerText1")}
         <Box sx={{ ml: "auto" }}>
-          <Link href="#location" passHref>
-            <Button className={styles}>{headerText2}</Button>
-          </Link>
-          {editMode && <EditButton label={headerText2}
-            props={{ id: 1, headerText2 }}
-            updateFunction={UpdateHeader}
-          />}
-          <Link href="#confirm" passHref>
-            <Button className={styles}>{headerText3}</Button>
-          </Link>
-          {editMode && <EditButton label={headerText3}
-            props={{ id: 1, headerText3 }}
-            updateFunction={UpdateHeader}
-          />}
+          {renderButton(headerText2, "#location", "headerText2")}
+          {renderButton(headerText3, "#confirm", "headerText3")}
         </Box>
       </Toolbar>
     </AppBar>

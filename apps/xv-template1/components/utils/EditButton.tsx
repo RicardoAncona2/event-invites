@@ -15,32 +15,37 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Saturation, Hue, useColor } from "react-color-palette";
 import "react-color-palette/css";
 
-interface EditButtonProps<T> {
+interface EditButtonProps<T extends Record<string, string | number>> {
   label: string;
   props: T;
   updateFunction: (props: T) => Promise<void>;
+  enableColorPicker?: boolean;
+  enableTextField?: boolean
+
 }
 
-const EditButton = <T extends Record<string, string | number>,>({
+const EditButton = <T extends Record<string, string | number>>({
   label,
   props,
   updateFunction,
+  enableColorPicker = false,
+  enableTextField= true
 }: EditButtonProps<T>) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(label);
+  const [color, setColor] = useColor("#ffffff");
   const [isPending, startTransition] = useTransition();
-  const [color, setColor] = useColor("black");
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const editableKey = Object.keys(props).find((key) => key !== "id");
+
   const handleSave = async () => {
-    const key = Object.keys(props)[1];
-    const updatedProps = { ...props, [key]: value };
+    if (!editableKey) return;
 
-    startTransition(() => {
-      updateFunction(updatedProps);
-    });
-
+    const updatedProps = { ...props, [editableKey]: value };
+    startTransition(() => updateFunction(updatedProps));
     handleClose();
   };
 
@@ -49,37 +54,42 @@ const EditButton = <T extends Record<string, string | number>,>({
       <IconButton onClick={handleOpen} color="primary">
         <EditIcon sx={{ color: "grey" }} />
       </IconButton>
+
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-        <form action={handleSave}>
-          <DialogTitle>{label}</DialogTitle>
-          <DialogContent>
-            <Box className="custom-layout">
-              <Saturation height={300} color={color} onChange={setColor} />
-              <Hue color={color} onChange={setColor} />
-            </Box>
+        <DialogTitle>Editar: {value}</DialogTitle>
+        <DialogContent>
+          {enableColorPicker && <Box className="custom-layout" mb={2}>
+            <Saturation height={300} color={color} onChange={setColor} />
+            <Hue color={color} onChange={setColor} />
             <TextField
-              value={value}
+              value={color.hex}
               onChange={(e) => setValue(e.target.value)}
               fullWidth
               variant="outlined"
-              label="Edit"
+              label="Edit Text"
             />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="secondary">
-              Cancel
-            </Button>
-            <Button
-              onClick={handleSave}
-              variant="contained"
-              color="primary"
-              disabled={isPending}
-              type="submit"
-            >
-              {isPending ? "Saving..." : "Save"}
-            </Button>
-          </DialogActions>
-        </form>
+          </Box>}
+{     enableTextField&&     <TextField
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            fullWidth
+            variant="outlined"
+            label="Edit Text"
+          />}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="secondary">
+            Cancel
+          </Button>
+          <Button
+            onClick={handleSave}
+            variant="contained"
+            color="primary"
+            disabled={isPending}
+          >
+            {isPending ? "Saving..." : "Save"}
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );
