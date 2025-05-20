@@ -4,6 +4,7 @@ import type React from "react"
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from "./theme";
+import { Header } from "apps/xv-template1/components";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <Header />
             {children}</ThemeProvider>
         </AppRouterCacheProvider>
 
